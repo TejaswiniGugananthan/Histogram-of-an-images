@@ -13,7 +13,6 @@ Read the gray and color image using imread()
 Print the image using imshow().
 
 
-
 ### Step3:
 Use calcHist() function to mark the image in graph frequency for gray and color image.
 
@@ -25,26 +24,79 @@ The Histogram of gray scale image and color image is shown.
 
 
 ## Program:
+
+Developed By: G.TEJASWINI
+Register Number: 212222230157
+
 ```python
-# Developed By: 
-# Register Number: 
+import cv2
+import matplotlib.pyplot as plt
+gray_image = cv2.imread("flower.png")
+color_image = cv2.imread("flower 1.png",-1)
+cv2.imshow("Gray Image",gray_image)
+cv2.imshow("Colour Image",color_image)
+cv2.waitKey(0)
+cv2.destroyAllWindows()
+```
 
+```python
+import numpy as np
+import cv2
+Gray_image = cv2.imread("flower.png")
+Color_image = cv2.imread("flower 1.png")
+import matplotlib.pyplot as plt
+gray_hist = cv2.calcHist([Gray_image],[0],None,[256],[0,256])
+color_hist = cv2.calcHist([Color_image],[0],None,[256],[0,256])
+plt.figure()
+plt.imshow(Gray_image)
+plt.show()
+plt.title("Histogram")
+plt.xlabel("Grayscale Value")
+plt.ylabel("Pixel Count")
+plt.stem(gray_hist)
+plt.show()
+```
 
+```python
+plt.imshow(Color_image)
+plt.show()
+plt.title("Histogram of Color Image - Green Channel")
+plt.xlabel("Intensity Value")
+plt.ylabel("Pixel Count")
+plt.stem(color_hist)
+plt.show()
+cv2.waitKey(0)
+```
 
-
-
-
+```python
+import cv2
+gray_image = cv2.imread("flower.png",0)
+cv2.imshow('Grey Scale Image',gray_image)
+equ = cv2.equalizeHist(gray_image)
+cv2.imshow("Equalized Image",equ)
+cv2.waitKey(0)
+cv2.destroyAllWindows()
 ```
 ## Output:
 ### Input Grayscale Image and Color Image
 
+ <img width="646" alt="image" src="https://github.com/TejaswiniGugananthan/Histogram-of-an-images/assets/121222763/c6dbf5c6-6619-4e45-adf4-20607a7c8236">
+
 
 ### Histogram of Grayscale Image and any channel of Color Image
 
+# Gray image
+
+<img width="258" alt="image" src="https://github.com/TejaswiniGugananthan/Histogram-of-an-images/assets/121222763/b083e3da-0a59-4af6-af77-1789e1e40b5a">
+
+# Colour image
+
+<img width="248" alt="image" src="https://github.com/TejaswiniGugananthan/Histogram-of-an-images/assets/121222763/10030d09-5575-48ce-91cd-0c4518f42456">
 
 
 ### Histogram Equalization of Grayscale Image.
 
+![Screenshot 2024-04-13 214030](https://github.com/TejaswiniGugananthan/Histogram-of-an-images/assets/121222763/50160165-e395-4fc1-978f-72bded8b1a8b)
 
 
 
